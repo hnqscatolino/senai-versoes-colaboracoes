@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Vender • Estoque{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Vender produto</h1>
+  <p class="muted">Baixa no estoque (não permite negativo).</p>
+</section>
+
+<section class="card">
+  <form class="form" action="{{ url_for('vender_post') }}" method="post" data-confirm="true">
+    <div class="form-grid">
+      <div class="form-row">
+        <label for="codigo">Código</label>
+        <input id="codigo" name="codigo" type="number" min="1" step="1" placeholder="Ex: 10" required>
+      </div>
+
+      <div class="form-row">
+        <label for="quantidade">Quantidade</label>
+        <input id="quantidade" name="quantidade" type="number" min="1" step="1" placeholder="Ex: 2" required>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-danger" type="submit">Vender</button>
+      <a class="btn btn-secondary" href="{{ url_for('produtos') }}">Voltar</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

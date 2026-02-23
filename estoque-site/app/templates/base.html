@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Estoque - Loja de Informática{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <div class="brand-title">Estoque</div>
+        <div class="brand-subtitle">Loja de Informática</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('produtos') }}">Produtos</a>
+      <a href="{{ url_for('adicionar_get') }}">Adicionar</a>
+      <a href="{{ url_for('consultar_get') }}">Consultar</a>
+      <a href="{{ url_for('vender_get') }}">Vender</a>
+      <a href="{{ url_for('repor_get') }}">Repor</a>
+      <a href="{{ url_for('relatorio') }}">Relatório</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-stack">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <small>Controle de estoque (dicionário em memória) • Flask</small>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

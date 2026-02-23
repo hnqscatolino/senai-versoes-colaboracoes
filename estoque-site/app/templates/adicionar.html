@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Adicionar • Estoque{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Adicionar produto</h1>
+  <p class="muted">Cadastre um novo item no estoque.</p>
+</section>
+
+<section class="card">
+  <form class="form" action="{{ url_for('adicionar_post') }}" method="post">
+    <div class="form-row">
+      <label for="nome">Produto</label>
+      <input id="nome" name="nome" type="text" placeholder="Ex: Mouse Gamer" required>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-row">
+        <label for="preco">Preço (R$)</label>
+        <input id="preco" name="preco" type="text" inputmode="decimal" placeholder="Ex: 199.90" required>
+      </div>
+
+      <div class="form-row">
+        <label for="quantidade">Quantidade</label>
+        <input id="quantidade" name="quantidade" type="number" min="0" step="1" placeholder="Ex: 10" required>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Salvar</button>
+      <a class="btn btn-secondary" href="{{ url_for('produtos') }}">Cancelar</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

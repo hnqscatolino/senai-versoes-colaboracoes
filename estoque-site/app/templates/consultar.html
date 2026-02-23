@@ -1,0 +1,39 @@
+// FILE: /estoque-site/app/templates/consultar.html
+{% extends "base.html" %}
+{% block title %}Consultar • Estoque{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Consultar produto</h1>
+  <p class="muted">Busque um produto pelo código.</p>
+</section>
+
+<section class="card">
+  <form class="form" action="{{ url_for('consultar_post') }}" method="post">
+    <div class="form-grid">
+      <div class="form-row">
+        <label for="codigo">Código</label>
+        <input id="codigo" name="codigo" type="number" min="1" step="1" placeholder="Ex: 10" required>
+      </div>
+      <div class="form-row">
+        <label>&nbsp;</label>
+        <button class="btn" type="submit">Consultar</button>
+      </div>
+    </div>
+  </form>
+
+  {% if resultado %}
+    <hr class="sep">
+    <div class="result">
+      <h2>Resultado</h2>
+      <div class="result-grid">
+        <div><span class="muted">Código</span><br><strong>{{ resultado.codigo }}</strong></div>
+        <div><span class="muted">Produto</span><br><strong>{{ resultado.produto }}</strong></div>
+        <div><span class="muted">Preço</span><br><strong>R$ {{ "%.2f"|format(resultado.preco) }}</strong></div>
+        <div><span class="muted">Quantidade</span><br><strong>{{ resultado.quantidade }}</strong></div>
+        <div><span class="muted">Total</span><br><strong>R$ {{ "%.2f"|format(resultado.total) }}</strong></div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Repor Estoque • Estoque{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Repor estoque</h1>
+  <p class="muted">Adiciona quantidade a um produto já cadastrado.</p>
+</section>
+
+<section class="card">
+  <form class="form" action="{{ url_for('repor_post') }}" method="post">
+    <div class="form-grid">
+      <div class="form-row">
+        <label for="codigo">Código</label>
+        <input id="codigo" name="codigo" type="number" min="1" step="1" placeholder="Ex: 10" required>
+      </div>
+
+      <div class="form-row">
+        <label for="quantidade">Quantidade a adicionar</label>
+        <input id="quantidade" name="quantidade" type="number" min="1" step="1" placeholder="Ex: 5" required>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Adicionar ao estoque</button>
+      <a class="btn btn-secondary" href="{{ url_for('produtos') }}">Voltar</a>
+    </div>
+  </form>
+</section>
+{% endblock %}
