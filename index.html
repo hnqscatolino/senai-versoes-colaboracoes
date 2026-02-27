@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estoque • Loja de Informática</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <div class="brand-title">Estoque</div>
+        <div class="brand-subtitle">Loja de Informática</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a href="#/" data-route="/">Dashboard</a>
+      <a href="#/produtos" data-route="/produtos">Produtos</a>
+      <a href="#/adicionar" data-route="/adicionar">Adicionar</a>
+      <a href="#/consultar" data-route="/consultar">Consultar</a>
+      <a href="#/vender" data-route="/vender">Vender</a>
+      <a href="#/repor" data-route="/repor">Repor</a>
+      <a href="#/relatorio" data-route="/relatorio">Relatório</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="flash-stack" id="flashStack" aria-live="polite"></div>
+    <div id="app"></div>
+  </main>
+
+  <footer class="footer">
+    <small>Controle de estoque (LocalStorage) • GitHub Pages</small>
+  </footer>
+
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
